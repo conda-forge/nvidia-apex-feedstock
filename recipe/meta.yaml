@@ -14,7 +14,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [osx or (linux and py2k) or (win and vc<14 and not py36)]
+  skip: True  # [osx or p2k or (win and vc<14)]
 
 outputs:
   - name: nvidia-apex-proc
@@ -36,7 +36,6 @@ outputs:
     build:
       number: 1
       script: python -m pip install . -vv
-      skip: True  # [win]
     requirements:
       build:
         - {{ compiler('c') }}
