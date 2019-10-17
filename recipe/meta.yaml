@@ -2,7 +2,8 @@
 {% set version = "0.1" %}
 {% set commit = "088985936518be7e25795a30d8ab33affa9db6ed" %}
 
-{% set nvidia_apex_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}
+{% set nvidia_apex_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [linux64]
+{% set nvidia_apex_proc_type = "cpu" %}                                                # [not linux64]
 
 package:
   name: {{ name|lower }}
@@ -40,7 +41,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
+        - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
       host:
         - python
         - pytorch
