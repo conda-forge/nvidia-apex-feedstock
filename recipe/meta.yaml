@@ -14,7 +14,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [osx or p2k or (win and vc<14)]
+  skip: True  # [osx or py2k or (win and vc<14)]
 
 outputs:
   - name: nvidia-apex-proc
