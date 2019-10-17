@@ -2,6 +2,9 @@
 {% set version = "0.1" %}
 {% set commit = "088985936518be7e25795a30d8ab33affa9db6ed" %}
 
+{% set nvidia_apex_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [linux64]
+{% set nvidia_apex_proc_type = "cpu" %}                                                # [not linux64]
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -12,34 +15,63 @@ source:
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv "
-  skip: True  # [osx or (not py36) or (win and vc<14)]
+  skip: True  # [osx or py2k or (win and vc<14)]
 
-requirements:
-  build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-  host:
-    - python
-    - pytorch
-    - setuptools
-    - pip
-  run:
-    - python
-    - pytorch
-    - cxxfilt  # [linux]
-    - tqdm
-    - numpy
-    - PyYAML
-    - pytest
+outputs:
+  - name: nvidia-apex-proc
+    version: {{ version }}
+    build:
+      number: 0
+      string: "{{ nvidia_apex_proc_type }}"
+    test:
+      commands:
+        - exit 0
+    about:
+      home: https://github.com/conda-forge/nvidia-apex-feedstock
+      license: BSD-3-Clause
+      license_family: BSD
+      summary: A meta-package to select CPU or GPU nvidia-apex build.
 
-test:
-  imports:
-    - apex
-    - apex.amp
-    - apex.parallel
-    - apex.optimizers
-    - apex.normalization.fused_layer_norm
+  - name: nvidia-apex
+    version: {{ version }}
+    build:
+      number: 1
+      script: python -m pip install . -vv
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
+      host:
+        - python
+        - pytorch
+        - setuptools
+        - pip
+      run:
+        - python
+        - pytorch
+        - cxxfilt  # [linux]
+        - tqdm
+        - numpy
+        - PyYAML
+        - pytest
+      run_constrained:
+        - nvidia-apex-proc * {{ nvidia_apex_proc_type }}
+    test:
+      imports:
+        - apex
+        - apex.amp
+        - apex.parallel
+        - apex.optimizers
+        - apex.normalization.fused_layer_norm
+    about:
+      home: "https://nvidia.github.io/apex/"
+      license: BSD-3-Clause
+      license_family: BSD
+      license_file: LICENSE
+      summary: "a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training."
+      doc_url: "https://nvidia.github.io/apex/"
+      dev_url: "https://github.com/NVIDIA/apex"
 
 about:
   home: "https://nvidia.github.io/apex/"
@@ -54,3 +86,5 @@ extra:
   recipe-maintainers:
     - oblute
     - benhuff
+    - jakirkham
+    - rluria14

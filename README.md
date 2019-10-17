@@ -29,10 +29,59 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_python3.6</td>
+              <td>linux_cuda_compiler_version10.0python3.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_python3.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_version10.0python3.6" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_cuda_compiler_version10.0python3.7</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_version10.0python3.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_cuda_compiler_version10.1python3.6</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_version10.1python3.6" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_cuda_compiler_version10.1python3.7</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_version10.1python3.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_cuda_compiler_version9.2python3.6</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_version9.2python3.6" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_cuda_compiler_version9.2python3.7</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_version9.2python3.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_cuda_compiler_versionNonepython3.6</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_versionNonepython3.6" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_cuda_compiler_versionNonepython3.7</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_cuda_compiler_versionNonepython3.7" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -40,6 +89,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015cxx_compilervs2015python3.6vc14" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_c_compilervs2015cxx_compilervs2015python3.7vc14</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015cxx_compilervs2015python3.7vc14" alt="variant">
                 </a>
               </td>
             </tr>
@@ -68,6 +124,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-nvidia--apex-green.svg)](https://anaconda.org/conda-forge/nvidia-apex) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nvidia-apex.svg)](https://anaconda.org/conda-forge/nvidia-apex) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nvidia-apex.svg)](https://anaconda.org/conda-forge/nvidia-apex) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nvidia-apex.svg)](https://anaconda.org/conda-forge/nvidia-apex) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-nvidia--apex--proc-green.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nvidia-apex-proc.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nvidia-apex-proc.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nvidia-apex-proc.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) |
 
 Installing nvidia-apex
 ======================
@@ -78,10 +135,10 @@ Installing `nvidia-apex` from the `conda-forge` channel can be achieved by addin
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `nvidia-apex` can be installed with:
+Once the `conda-forge` channel has been enabled, `nvidia-apex, nvidia-apex-proc` can be installed with:
 
 ```
-conda install nvidia-apex
+conda install nvidia-apex nvidia-apex-proc
 ```
 
 It is possible to list all of the versions of `nvidia-apex` available on your platform with:
@@ -155,5 +212,7 @@ Feedstock Maintainers
 =====================
 
 * [@benhuff](https://github.com/benhuff/)
+* [@jakirkham](https://github.com/jakirkham/)
 * [@oblute](https://github.com/oblute/)
+* [@rluria14](https://github.com/rluria14/)
 
