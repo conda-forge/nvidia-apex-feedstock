@@ -36,6 +36,7 @@ outputs:
     build:
       number: 1
       script: python -m pip install . -vv
+      skip: True  # [win]
     requirements:
       build:
         - {{ compiler('c') }}
