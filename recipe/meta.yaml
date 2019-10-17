@@ -14,7 +14,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [not linux or py2k]
+  skip: True  # [osx or (linux and py2k) or (win and vc<14 and not py36)]
 
 outputs:
   - name: nvidia-apex-proc
@@ -34,22 +34,13 @@ outputs:
   - name: nvidia-apex
     version: {{ version }}
     build:
-      number: 0
+      number: 1
       script: python -m pip install . -vv
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
-        - {{ cdt("libnl") }}
-        - {{ cdt("libibverbs-devel") }}
-        - {{ cdt("librdmacm-devel") }}
-        - {{ cdt("numactl-devel") }}
-        - automake
-        - autoconf
-        - libtool
-        - make
-        - pkg-config
+        - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
       host:
         - python
         - pytorch
