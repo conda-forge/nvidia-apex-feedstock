@@ -40,7 +40,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
+        - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != 'undefined']
       host:
         - python
         - pytorch
