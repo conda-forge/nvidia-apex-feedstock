@@ -15,7 +15,7 @@ pin_run_as_build:
   vc:
     max_pin: x
 python:
-- '3.6'
+- '3.7'
 vc:
 - '14'
 zip_keys:
