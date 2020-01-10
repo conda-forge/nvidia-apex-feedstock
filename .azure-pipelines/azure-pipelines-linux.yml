@@ -26,6 +26,14 @@ jobs:
         CONFIG: linux_cuda_compiler_version10.1python3.7
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-cuda:10.1
+      linux_cuda_compiler_version10.2python3.6:
+        CONFIG: linux_cuda_compiler_version10.2python3.6
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-cuda:10.2
+      linux_cuda_compiler_version10.2python3.7:
+        CONFIG: linux_cuda_compiler_version10.2python3.7
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-cuda:10.2
       linux_cuda_compiler_version9.2python3.6:
         CONFIG: linux_cuda_compiler_version9.2python3.6
         UPLOAD_PACKAGES: True
