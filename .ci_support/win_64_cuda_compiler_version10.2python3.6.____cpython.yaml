@@ -9,7 +9,7 @@ cuda_compiler_version:
 cxx_compiler:
 - vs2017
 numpy:
-- '1.16'
+- '1.17'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -21,5 +21,5 @@ target_platform:
 vc:
 - '14'
 zip_keys:
-- - python
-  - numpy
+- - numpy
+  - python
