@@ -14,14 +14,14 @@ source:
   sha256: cc5ce27aa30b5ade54d520fafc1cd7d293dfba58c51851759a034d03e3f370bb
 
 build:
-  number: 3
+  number: 4
   skip: True  # [osx or py2k or (win and vc<14)]
 
 outputs:
   - name: nvidia-apex-proc
     version: {{ version }}
     build:
-      number: 3
+      number: 4
       string: "{{ nvidia_apex_proc_type }}"
     test:
       commands:
@@ -35,7 +35,7 @@ outputs:
   - name: nvidia-apex
     version: {{ version }}
     build:
-      number: 4
+      number: 5
       script: python -m pip install . -vv
     requirements:
       build:
