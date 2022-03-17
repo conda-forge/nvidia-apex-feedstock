@@ -45,11 +45,11 @@ outputs:
       host:
         - python
         - pytorch
+        - pytorch =*={{ nvidia_apex_proc_type }}*
         - setuptools
         - pip
       run:
         - python
-        - pytorch
         - cxxfilt  # [linux]
         - tqdm
         - numpy
@@ -57,6 +57,7 @@ outputs:
         - pytest
       run_constrained:
         - nvidia-apex-proc * {{ nvidia_apex_proc_type }}
+        - pytorch =*={{ nvidia_apex_proc_type }}*
     test:
       imports:
         - apex
