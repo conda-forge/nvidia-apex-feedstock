@@ -4,6 +4,8 @@
 
 {% set nvidia_apex_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [linux64]
 {% set nvidia_apex_proc_type = "cpu" %}                                                # [not linux64]
+# see github.com/conda-forge/conda-forge.github.io/issues/1059 for naming discussion
+{% set torch_proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
 package:
   name: {{ name|lower }}
@@ -45,7 +47,7 @@ outputs:
       host:
         - python
         - pytorch
-        - pytorch =*={{ nvidia_apex_proc_type }}*
+        - pytorch =*={{ torch_proc_type }}*
         - setuptools
         - pip
       run:
@@ -57,7 +59,7 @@ outputs:
         - pytest
       run_constrained:
         - nvidia-apex-proc * {{ nvidia_apex_proc_type }}
-        - pytorch =*={{ nvidia_apex_proc_type }}*
+        - pytorch =*={{ torch_proc_type }}*
     test:
       imports:
         - apex
