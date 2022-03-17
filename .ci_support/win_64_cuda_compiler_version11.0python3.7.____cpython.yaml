@@ -20,8 +20,6 @@ pytorch:
 - '1.10'
 target_platform:
 - win-64
-vc:
-- '14'
 zip_keys:
 - - python
   - numpy
