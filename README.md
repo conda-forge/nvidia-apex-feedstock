@@ -31,213 +31,108 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_cuda_compiler_version10.2python3.6.____cpython</td>
+              <td>linux_64_c_compiler_version10cuda_compiler_version11.1cxx_compiler_version10python3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.2python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version10cuda_compiler_version11.1cxx_compiler_version10python3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version10.2python3.7.____cpython</td>
+              <td>linux_64_c_compiler_version10cuda_compiler_version11.1cxx_compiler_version10python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.2python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version10cuda_compiler_version11.1cxx_compiler_version10python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version10.2python3.8.____cpython</td>
+              <td>linux_64_c_compiler_version10cuda_compiler_version11.1cxx_compiler_version10python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.2python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version10cuda_compiler_version11.1cxx_compiler_version10python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version11.0python3.6.____cpython</td>
+              <td>linux_64_c_compiler_version10cuda_compiler_version11.2cxx_compiler_version10python3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.0python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version10cuda_compiler_version11.2cxx_compiler_version10python3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version11.0python3.7.____cpython</td>
+              <td>linux_64_c_compiler_version10cuda_compiler_version11.2cxx_compiler_version10python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.0python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version10cuda_compiler_version11.2cxx_compiler_version10python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version11.0python3.8.____cpython</td>
+              <td>linux_64_c_compiler_version10cuda_compiler_version11.2cxx_compiler_version10python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.0python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version10cuda_compiler_version11.2cxx_compiler_version10python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version11.1python3.6.____cpython</td>
+              <td>linux_64_c_compiler_version10cuda_compiler_versionNonecxx_compiler_version10python3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.1python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version10cuda_compiler_versionNonecxx_compiler_version10python3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version11.1python3.7.____cpython</td>
+              <td>linux_64_c_compiler_version10cuda_compiler_versionNonecxx_compiler_version10python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.1python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version10cuda_compiler_versionNonecxx_compiler_version10python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version11.1python3.8.____cpython</td>
+              <td>linux_64_c_compiler_version10cuda_compiler_versionNonecxx_compiler_version10python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.1python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version10cuda_compiler_versionNonecxx_compiler_version10python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version11.2python3.6.____cpython</td>
+              <td>linux_64_c_compiler_version7cuda_compiler_version10.2cxx_compiler_version7python3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.2python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version7cuda_compiler_version10.2cxx_compiler_version7python3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version11.2python3.7.____cpython</td>
+              <td>linux_64_c_compiler_version7cuda_compiler_version10.2cxx_compiler_version7python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.2python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version7cuda_compiler_version10.2cxx_compiler_version7python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version11.2python3.8.____cpython</td>
+              <td>linux_64_c_compiler_version7cuda_compiler_version10.2cxx_compiler_version7python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.2python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version7cuda_compiler_version10.2cxx_compiler_version7python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonepython3.6.____cpython</td>
+              <td>linux_64_c_compiler_version9cuda_compiler_version11.0cxx_compiler_version9python3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonepython3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version9cuda_compiler_version11.0cxx_compiler_version9python3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonepython3.7.____cpython</td>
+              <td>linux_64_c_compiler_version9cuda_compiler_version11.0cxx_compiler_version9python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonepython3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version9cuda_compiler_version11.0cxx_compiler_version9python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonepython3.8.____cpython</td>
+              <td>linux_64_c_compiler_version9cuda_compiler_version11.0cxx_compiler_version9python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonepython3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version10.2python3.6.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version10.2python3.6.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version10.2python3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version10.2python3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version10.2python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version10.2python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version11.0python3.6.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version11.0python3.6.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version11.0python3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version11.0python3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version11.0python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version11.0python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version11.1python3.6.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version11.1python3.6.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version11.1python3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version11.1python3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version11.1python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version11.1python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version11.2python3.6.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version11.2python3.6.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version11.2python3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version11.2python3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version11.2python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_version11.2python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_versionNonepython3.6.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_versionNonepython3.6.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_versionNonepython3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_versionNonepython3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_versionNonepython3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_64_cuda_compiler_versionNonepython3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version9cuda_compiler_version11.0cxx_compiler_version9python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr>
@@ -282,7 +177,8 @@ conda search nvidia-apex --channel conda-forge
 About conda-forge
 =================
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
