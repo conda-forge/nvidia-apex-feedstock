@@ -1,5 +1,4 @@
-{% set version = "0.1" %}
-{% set commit = "088985936518be7e25795a30d8ab33affa9db6ed" %}
+{% set version = "22.03" %}
 
 {% set nvidia_apex_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [linux64]
 {% set nvidia_apex_proc_type = "cpu" %}                                                # [not linux64]
@@ -11,11 +10,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/NVIDIA/apex/archive/{{ commit }}.tar.gz
-  sha256: cc5ce27aa30b5ade54d520fafc1cd7d293dfba58c51851759a034d03e3f370bb
+  url: https://github.com/NVIDIA/apex/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 694f1ac1aaed6435b2f0c2ebc1af56b8a215a5eaa96c2565a578e8734378ff66
 
 build:
-  number: 7
+  number: 0
   skip: True  # [osx or win]
 
 outputs:
