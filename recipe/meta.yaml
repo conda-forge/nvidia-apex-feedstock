@@ -1,9 +1,7 @@
 {% set version = "22.03" %}
 
-{% set nvidia_apex_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [linux64]
-{% set nvidia_apex_proc_type = "cpu" %}                                                # [not linux64]
 # see github.com/conda-forge/conda-forge.github.io/issues/1059 for naming discussion
-{% set torch_proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
+{% set proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
 package:
   name: nvidia-apex-split
@@ -21,7 +19,7 @@ outputs:
   - name: nvidia-apex-proc
     version: {{ version }}
     build:
-      string: "{{ nvidia_apex_proc_type }}"
+      string: "{{ proc_type }}"
     test:
       commands:
         - exit 0
@@ -34,6 +32,8 @@ outputs:
   - name: nvidia-apex
     version: {{ version }}
     build:
+      string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}                                                # [cuda_compiler_version == "None"]
+      string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
       script:
         - export TORCH_CUDA_ARCH_LIST="3.5;5.0;6.0;6.1;7.0;7.5;8.0;8.6"
         - python -m pip install . -vv
@@ -45,7 +45,7 @@ outputs:
       host:
         - python
         - pytorch
-        - pytorch =*={{ torch_proc_type }}*
+        - pytorch =*={{ proc_type }}*
         - setuptools
         - pip
       run:
@@ -56,8 +56,10 @@ outputs:
         - PyYAML
         - pytest
       run_constrained:
-        - nvidia-apex-proc * {{ nvidia_apex_proc_type }}
-        - pytorch =*={{ torch_proc_type }}*
+        # old constraint used "gpu"
+        - nvidia-apex-proc =*=cuda|=*=gpu  # [cuda_compiler_version != "None"]
+        - nvidia-apex-proc =*=cpu          # [cuda_compiler_version != "None"]
+        - pytorch =*={{ proc_type }}*
     test:
       imports:
         - apex
