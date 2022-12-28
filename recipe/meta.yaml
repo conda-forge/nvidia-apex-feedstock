@@ -34,7 +34,9 @@ outputs:
   - name: nvidia-apex
     version: {{ version }}
     build:
-      script: python -m pip install . -vv
+      script:
+        - export TORCH_CUDA_ARCH_LIST="3.5;5.0;6.0;6.1;7.0;7.5;8.0;8.6"
+        - python -m pip install . -vv
     requirements:
       build:
         - {{ compiler('c') }}
