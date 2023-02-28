@@ -13,7 +13,7 @@ source:
   sha256: 694f1ac1aaed6435b2f0c2ebc1af56b8a215a5eaa96c2565a578e8734378ff66
 
 build:
-  number: 1
+  number: 2
   skip: True  # [osx or win]
   # as of pytorch 1.13, conda-forge only builds for CUDA 11.2+, see
   # https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/3491
@@ -60,9 +60,8 @@ outputs:
         - PyYAML
         - pytest
       run_constrained:
-        # old constraint used "gpu"
-        - nvidia-apex-proc =*=cuda|=*=gpu  # [cuda_compiler_version != "None"]
-        - nvidia-apex-proc =*=cpu          # [cuda_compiler_version != "None"]
+        - nvidia-apex-proc =*=cuda         # [cuda_compiler_version != "None"]
+        - nvidia-apex-proc =*=cpu          # [cuda_compiler_version == "None"]
         - pytorch =*={{ proc_type }}*
     test:
       imports:
