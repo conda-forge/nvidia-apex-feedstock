@@ -1,17 +1,28 @@
+About nvidia-apex-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nvidia-apex-feedstock/blob/main/LICENSE.txt)
+
 About nvidia-apex
-=================
+-----------------
 
 Home: https://nvidia.github.io/apex/
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nvidia-apex-feedstock/blob/main/LICENSE.txt)
 
 Summary: a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training.
 
 Development: https://github.com/NVIDIA/apex
 
 Documentation: https://nvidia.github.io/apex/
+About nvidia-apex-proc
+----------------------
+
+Home: https://github.com/conda-forge/nvidia-apex-feedstock
+
+Package license: BSD-3-Clause
+
+Summary: A meta-package to select CPU or GPU nvidia-apex build.
 
 Current build status
 ====================
