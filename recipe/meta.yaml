@@ -11,9 +11,13 @@ package:
 source:
   url: https://github.com/NVIDIA/apex/archive/refs/tags/{{ version }}.tar.gz
   sha256: 694f1ac1aaed6435b2f0c2ebc1af56b8a215a5eaa96c2565a578e8734378ff66
+  patches:
+    # https://github.com/NVIDIA/apex/pull/1588
+    # https://github.com/NVIDIA/apex/commit/6943fd26e04c59327de32592cf5af68be8f5c44e
+    - 0001-use-torch.tensor-to-create-a-tensor-with-initializer.patch
 
 build:
-  number: 2
+  number: 3
   skip: True  # [osx or win]
   # as of pytorch 1.13, conda-forge only builds for CUDA 11.2+, see
   # https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/3491

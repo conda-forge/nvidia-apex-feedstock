@@ -1,0 +1,130 @@
+From e0cf3c56d6cbcd77fa6d253aa190c1954b6ad589 Mon Sep 17 00:00:00 2001
+From: Masaki Kozuki <mkozuki@nvidia.com>
+Date: Wed, 15 Feb 2023 18:56:36 -0800
+Subject: [PATCH] use `torch.tensor` to create a tensor with initializer values
+ (#1588)
+
+* use `torch.tensor` with init values
+
+Signed-off-by: Masaki Kozuki <mkozuki@nvidia.com>
+
+* Update apex/contrib/sparsity/sparse_masklib.py
+
+* remove torch._six
+
+Signed-off-by: Masaki Kozuki <mkozuki@nvidia.com>
+
+* retire `torch._six`
+
+as per the upstream commit of `b005ec62b9`.
+
+Signed-off-by: Masaki Kozuki <mkozuki@nvidia.com>
+
+* use std collections.abc
+
+Signed-off-by: Masaki Kozuki <mkozuki@nvidia.com>
+
+---------
+
+Signed-off-by: Masaki Kozuki <mkozuki@nvidia.com>
+---
+ apex/amp/_amp_state.py                  | 10 ----------
+ apex/amp/_initialize.py                 | 14 ++++++++------
+ apex/contrib/sparsity/sparse_masklib.py |  8 ++++----
+ 3 files changed, 12 insertions(+), 20 deletions(-)
+
+diff --git a/apex/amp/_amp_state.py b/apex/amp/_amp_state.py
+index 1ac9d31..7e8a329 100644
+--- a/apex/amp/_amp_state.py
++++ b/apex/amp/_amp_state.py
+@@ -2,18 +2,8 @@
+ # I'm a C++ guy, not a python guy.  I decided this approach because it seemed most C++-like.
+ # But apparently it's ok:
+ # http://effbot.org/pyfaq/how-do-i-share-global-variables-across-modules.htm
+-import os
+ import torch
+ 
+-TORCH_MAJOR = int(torch.__version__.split('.')[0])
+-TORCH_MINOR = int(torch.__version__.split('.')[1])
+-
+-
+-if TORCH_MAJOR == 1 and TORCH_MINOR < 8:
+-    from torch._six import container_abcs
+-else:
+-    import collections.abc as container_abcs
+-
+ 
+ class AmpState(object):
+     def __init__(self):
+diff --git a/apex/amp/_initialize.py b/apex/amp/_initialize.py
+index 28c5bbb..3ae6fde 100644
+--- a/apex/amp/_initialize.py
++++ b/apex/amp/_initialize.py
+@@ -1,11 +1,13 @@
+-import torch
+-from torch._six import string_classes
++import collections.abc as container_abcs
++from types import MethodType
+ import functools
+-import numpy as np
+ import sys
+-from types import MethodType
+ import warnings
+-from ._amp_state import _amp_state, warn_or_err, container_abcs
++
++import numpy as np
++import torch
++
++from ._amp_state import _amp_state, warn_or_err
+ from .handle import disable_casts
+ from .scaler import LossScaler
+ from ._process_optimizer import _process_optimizer
+@@ -39,7 +41,7 @@ def to_type(dtype, t):
+ def applier(value, fn):
+     if isinstance(value, torch.Tensor):
+         return fn(value)
+-    elif isinstance(value, string_classes):
++    elif isinstance(value, str):
+         return value
+     elif isinstance(value, np.ndarray):
+         return value
+diff --git a/apex/contrib/sparsity/sparse_masklib.py b/apex/contrib/sparsity/sparse_masklib.py
+index ed42d04..240cf45 100644
+--- a/apex/contrib/sparsity/sparse_masklib.py
++++ b/apex/contrib/sparsity/sparse_masklib.py
+@@ -30,7 +30,7 @@ def compute_valid_1d_patterns(m,n):
+     patterns = torch.zeros(m)
+     patterns[:n] = 1
+     valid_patterns = torch.Tensor(list(set(permutations(patterns.tolist()))))
+-    if m == 4  and n == 2: valid_m4n2_1d_patterns  = valid_patterns       
++    if m == 4  and n == 2: valid_m4n2_1d_patterns  = valid_patterns
+     return valid_patterns
+ 
+ """ m:n 1d structured best """
+@@ -53,13 +53,13 @@ def m4n2_1d(mat, density):
+   Below 2d-masking related code is targeted more for training (from scratch).
+   2d-pruning of a weight tensor is done to accelerate DGRAD step during backprop
+   phase of training algorithm. Acceleration comes from using SpMMA instructions in
+-  Tensor Cores of NVIDIA Ampere GPU Architecture 
++  Tensor Cores of NVIDIA Ampere GPU Architecture
+   (note: this code does not do the acceleration, GPU kernels are required for this).
+   1d pruning of weight tensor helps speed up FPROP step by pruning in 2:4 pattern
+   along the horizontal (logical) direction.
+   During DGRAD step, weight tensor is transposed. 2d pruning functions below, mask
+   weight tensor such that their transposed versions are also 2:4 sparse along the
+-  horizontal (logical) direction. Thus, with 2d pruning, weight tensors are 
++  horizontal (logical) direction. Thus, with 2d pruning, weight tensors are
+   2:4 sparse along row and column directions.
+  """
+ 
+@@ -179,6 +179,6 @@ def create_mask(tensor, pattern="m4n2_1d", density=0.5):
+         t = t.permute(2,3,0,1).contiguous().view(shape[2]*shape[3]*shape[0], shape[1])
+         func = getattr(sys.modules[__name__], pattern, None)
+         mask = func(t, density)
+-        mask = mask.view(shape[2], shape[3], shape[0], shape[1]).permute(2,3,0,1).contiguous()      
++        mask = mask.view(shape[2], shape[3], shape[0], shape[1]).permute(2,3,0,1).contiguous()
+         return mask.view(shape).type(ttype)
+ 
+-- 
+2.40.1
+
