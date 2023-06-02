@@ -1,4 +1,4 @@
-{% set version = "22.03" %}
+{% set version = "23.05" %}
 {% set proc_version = "1.0.0" %}
 
 # see github.com/conda-forge/conda-forge.github.io/issues/1059 for naming discussion
@@ -10,15 +10,15 @@ package:
 
 source:
   url: https://github.com/NVIDIA/apex/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 694f1ac1aaed6435b2f0c2ebc1af56b8a215a5eaa96c2565a578e8734378ff66
+  sha256: c770795fe710fc9d76388952ff073808d66a8f33593f46961351ab549ec73d47
   patches:
     # https://github.com/NVIDIA/apex/pull/1588
     # https://github.com/NVIDIA/apex/commit/6943fd26e04c59327de32592cf5af68be8f5c44e
     - 0001-use-torch.tensor-to-create-a-tensor-with-initializer.patch
 
 build:
-  number: 3
-  skip: True  # [osx or win]
+  number: 0
+  skip: true  # [osx or win]
   # as of pytorch 1.13, conda-forge only builds for CUDA 11.2+, see
   # https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/3491
   skip: true  # [cuda_compiler_version in ("10.2", "11.0", "11.1")]
@@ -40,7 +40,7 @@ outputs:
   - name: nvidia-apex
     version: {{ version }}
     build:
-      string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}                                                # [cuda_compiler_version == "None"]
+      string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
       string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
       script:
         - export TORCH_CUDA_ARCH_LIST="3.5;5.0;6.0;6.1;7.0;7.5;8.0;8.6"
@@ -75,22 +75,22 @@ outputs:
         - apex.optimizers
         - apex.normalization.fused_layer_norm
     about:
-      home: "https://nvidia.github.io/apex/"
+      home: https://nvidia.github.io/apex/
       license: BSD-3-Clause
       license_family: BSD
       license_file: LICENSE
-      summary: "a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training."
-      doc_url: "https://nvidia.github.io/apex/"
-      dev_url: "https://github.com/NVIDIA/apex"
+      summary: a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training.
+      doc_url: https://nvidia.github.io/apex/
+      dev_url: https://github.com/NVIDIA/apex
 
 about:
-  home: "https://nvidia.github.io/apex/"
+  home: https://nvidia.github.io/apex/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: "a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training."
-  doc_url: "https://nvidia.github.io/apex/"
-  dev_url: "https://github.com/NVIDIA/apex"
+  summary: a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training.
+  doc_url: https://nvidia.github.io/apex/
+  dev_url: https://github.com/NVIDIA/apex
 
 extra:
   recipe-maintainers:
