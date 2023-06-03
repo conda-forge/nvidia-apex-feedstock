@@ -51,6 +51,7 @@ outputs:
         - pytorch
         - pytorch =*={{ proc_type }}*
         - setuptools
+        - packaging
         - pip
       run:
         - python
