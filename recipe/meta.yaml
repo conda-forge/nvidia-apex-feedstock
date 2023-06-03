@@ -11,10 +11,6 @@ package:
 source:
   url: https://github.com/NVIDIA/apex/archive/refs/tags/{{ version }}.tar.gz
   sha256: c770795fe710fc9d76388952ff073808d66a8f33593f46961351ab549ec73d47
-  patches:
-    # https://github.com/NVIDIA/apex/pull/1588
-    # https://github.com/NVIDIA/apex/commit/6943fd26e04c59327de32592cf5af68be8f5c44e
-    - 0001-use-torch.tensor-to-create-a-tensor-with-initializer.patch
 
 build:
   number: 0
