@@ -3,6 +3,7 @@ About nvidia-apex-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nvidia-apex-feedstock/blob/main/LICENSE.txt)
 
+
 About nvidia-apex
 -----------------
 
@@ -15,6 +16,7 @@ Summary: a Pytorch extension with NVIDIA-maintained utilities to streamline mixe
 Development: https://github.com/NVIDIA/apex
 
 Documentation: https://nvidia.github.io/apex/
+
 About nvidia-apex-proc
 ----------------------
 
