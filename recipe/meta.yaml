@@ -17,7 +17,7 @@ source:
     - 0001-use-torch.tensor-to-create-a-tensor-with-initializer.patch
 
 build:
-  number: 3
+  number: 4
   skip: True  # [osx or win]
   # as of pytorch 1.13, conda-forge only builds for CUDA 11.2+, see
   # https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/3491
