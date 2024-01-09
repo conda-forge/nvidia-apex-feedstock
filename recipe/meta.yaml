@@ -18,7 +18,7 @@ source:
 
 build:
   number: 3
-  skip: True  # [osx or win]
+  skip: true  # [not linux or cuda_compiler == "None"]
 
 outputs:
   - name: nvidia-apex-proc
