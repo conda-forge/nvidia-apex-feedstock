@@ -3,10 +3,6 @@ About nvidia-apex-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nvidia-apex-feedstock/blob/main/LICENSE.txt)
 
-
-About nvidia-apex
------------------
-
 Home: https://nvidia.github.io/apex/
 
 Package license: BSD-3-Clause
@@ -16,15 +12,6 @@ Summary: a Pytorch extension with NVIDIA-maintained utilities to streamline mixe
 Development: https://github.com/NVIDIA/apex
 
 Documentation: https://nvidia.github.io/apex/
-
-About nvidia-apex-proc
-----------------------
-
-Home: https://github.com/conda-forge/nvidia-apex-feedstock
-
-Package license: BSD-3-Clause
-
-Summary: A meta-package to select CPU or GPU nvidia-apex build.
 
 Current build status
 ====================
@@ -85,7 +72,6 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-nvidia--apex-green.svg)](https://anaconda.org/conda-forge/nvidia-apex) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nvidia-apex.svg)](https://anaconda.org/conda-forge/nvidia-apex) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nvidia-apex.svg)](https://anaconda.org/conda-forge/nvidia-apex) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nvidia-apex.svg)](https://anaconda.org/conda-forge/nvidia-apex) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-nvidia--apex--proc-green.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nvidia-apex-proc.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nvidia-apex-proc.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nvidia-apex-proc.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) |
 
 Installing nvidia-apex
 ======================
@@ -97,16 +83,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `nvidia-apex, nvidia-apex-proc` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `nvidia-apex` can be installed with `conda`:
 
 ```
-conda install nvidia-apex nvidia-apex-proc
+conda install nvidia-apex
 ```
 
 or with `mamba`:
 
 ```
-mamba install nvidia-apex nvidia-apex-proc
+mamba install nvidia-apex
 ```
 
 It is possible to list all of the versions of `nvidia-apex` available on your platform with `conda`:
