@@ -1,8 +1,4 @@
 {% set version = "22.03" %}
-{% set proc_version = "1.0.0" %}
-
-# see github.com/conda-forge/conda-forge.github.io/issues/1059 for naming discussion
-{% set proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
 package:
   name: nvidia-apex-split
@@ -21,24 +17,10 @@ build:
   skip: true  # [not linux or cuda_compiler == "None"]
 
 outputs:
-  - name: nvidia-apex-proc
-    version: {{ proc_version }}
-    build:
-      string: {{ proc_type }}
-    test:
-      commands:
-        - exit 0
-    about:
-      home: https://github.com/conda-forge/nvidia-apex-feedstock
-      license: BSD-3-Clause
-      license_family: BSD
-      summary: A meta-package to select CPU or GPU nvidia-apex build.
-
   - name: nvidia-apex
     version: {{ version }}
     build:
-      string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}                                                # [cuda_compiler_version == "None"]
-      string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
+      string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       script:
         - export TORCH_CUDA_ARCH_LIST="3.5;5.0;6.0;6.1;7.0;7.5;8.0;8.6"
         - python -m pip install . -vv
@@ -46,11 +28,11 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
+        - {{ compiler('cuda') }}
       host:
         - python
         - pytorch
-        - pytorch =*={{ proc_type }}*
+        - pytorch =*=cuda*
         - setuptools
         - pip
       run:
@@ -61,9 +43,7 @@ outputs:
         - PyYAML
         - pytest
       run_constrained:
-        - nvidia-apex-proc =*=cuda         # [cuda_compiler_version != "None"]
-        - nvidia-apex-proc =*=cpu          # [cuda_compiler_version == "None"]
-        - pytorch =*={{ proc_type }}*
+        - pytorch =*=cuda*
     test:
       imports:
         - apex
