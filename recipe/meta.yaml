@@ -1,7 +1,7 @@
 {% set version = "22.03" %}
 
 package:
-  name: nvidia-apex-split
+  name: nvidia-apex
   version: {{ version }}
 
 source:
@@ -15,50 +15,39 @@ source:
 build:
   number: 3
   skip: true  # [not linux or cuda_compiler == "None"]
+  string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+  script:
+    - export TORCH_CUDA_ARCH_LIST="3.5;5.0;6.0;6.1;7.0;7.5;8.0;8.6"
+    - python -m pip install . -vv
 
-outputs:
-  - name: nvidia-apex
-    version: {{ version }}
-    build:
-      string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
-      script:
-        - export TORCH_CUDA_ARCH_LIST="3.5;5.0;6.0;6.1;7.0;7.5;8.0;8.6"
-        - python -m pip install . -vv
-    requirements:
-      build:
-        - {{ compiler('c') }}
-        - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}
-      host:
-        - python
-        - pytorch
-        - pytorch =*=cuda*
-        - setuptools
-        - pip
-      run:
-        - python
-        - cxxfilt
-        - tqdm
-        - numpy
-        - PyYAML
-        - pytest
-      run_constrained:
-        - pytorch =*=cuda*
-    test:
-      imports:
-        - apex
-        - apex.amp
-        - apex.parallel
-        - apex.optimizers
-        - apex.normalization.fused_layer_norm
-    about:
-      home: "https://nvidia.github.io/apex/"
-      license: BSD-3-Clause
-      license_family: BSD
-      license_file: LICENSE
-      summary: "a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training."
-      doc_url: "https://nvidia.github.io/apex/"
-      dev_url: "https://github.com/NVIDIA/apex"
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('cuda') }}
+  host:
+    - python
+    - pytorch
+    - pytorch =*=cuda*
+    - setuptools
+    - pip
+  run:
+    - python
+    - cxxfilt
+    - tqdm
+    - numpy
+    - PyYAML
+    - pytest
+  run_constrained:
+    - pytorch =*=cuda*
+
+test:
+  imports:
+    - apex
+    - apex.amp
+    - apex.parallel
+    - apex.optimizers
+    - apex.normalization.fused_layer_norm
 
 about:
   home: "https://nvidia.github.io/apex/"
@@ -76,4 +65,3 @@ extra:
     - benhuff
     - jakirkham
     - rluria14
-  feedstock-name: nvidia-apex
