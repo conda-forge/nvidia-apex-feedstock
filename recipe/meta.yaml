@@ -33,7 +33,7 @@ requirements:
     - cxxfilt
     - tqdm
     - numpy
-    - PyYAML
+    - pyyaml
     - pytest
   run_constrained:
     - pytorch =*=cuda*
