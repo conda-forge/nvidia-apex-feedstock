@@ -25,6 +25,7 @@ requirements:
   host:
     - python
     - pip
+    - packaging
     - pytorch
     - pytorch =*=cuda*
   run:
