@@ -24,10 +24,10 @@ requirements:
     - {{ compiler('cuda') }}
   host:
     - python
+    - pip
+    - setuptools
     - pytorch
     - pytorch =*=cuda*
-    - setuptools
-    - pip
   run:
     - python
     - cxxfilt
