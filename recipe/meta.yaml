@@ -1,4 +1,4 @@
-{% set version = "22.03" %}
+{% set version = "23.08" %}
 
 package:
   name: nvidia-apex
@@ -6,14 +6,10 @@ package:
 
 source:
   url: https://github.com/NVIDIA/apex/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 694f1ac1aaed6435b2f0c2ebc1af56b8a215a5eaa96c2565a578e8734378ff66
-  patches:
-    # https://github.com/NVIDIA/apex/pull/1588
-    # https://github.com/NVIDIA/apex/commit/6943fd26e04c59327de32592cf5af68be8f5c44e
-    - 0001-use-torch.tensor-to-create-a-tensor-with-initializer.patch
+  sha256: a6ab2d10b681b621a96c028d6727d133fdaea6dd4c30f0546f70cf6904de522e
 
 build:
-  number: 4
+  number: 0
   skip: true  # [not linux or cuda_compiler == "None"]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script_env:
@@ -28,17 +24,18 @@ requirements:
     - {{ compiler('cuda') }}
   host:
     - python
+    - pip
+    - packaging
     - pytorch
     - pytorch =*=cuda*
-    - setuptools
-    - pip
   run:
     - python
     - cxxfilt
     - tqdm
     - numpy
-    - PyYAML
+    - pyyaml
     - pytest
+    - packaging
   run_constrained:
     - pytorch =*=cuda*
 
