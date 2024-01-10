@@ -1,11 +1,7 @@
 {% set version = "22.03" %}
-{% set proc_version = "1.0.0" %}
-
-# see github.com/conda-forge/conda-forge.github.io/issues/1059 for naming discussion
-{% set proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
 package:
-  name: nvidia-apex-split
+  name: nvidia-apex
   version: {{ version }}
 
 source:
@@ -17,71 +13,42 @@ source:
     - 0001-use-torch.tensor-to-create-a-tensor-with-initializer.patch
 
 build:
-  number: 3
-  skip: True  # [osx or win]
-  # as of pytorch 1.13, conda-forge only builds for CUDA 11.2+, see
-  # https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/3491
-  skip: true  # [cuda_compiler_version in ("10.2", "11.0", "11.1")]
+  number: 4
+  skip: true  # [not linux or cuda_compiler == "None"]
+  string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+  script_env:
+    - TORCH_CUDA_ARCH_LIST=3.5;5.0;6.0;6.1;7.0;7.5;8.0;8.6+PTX  # [cuda_compiler_version == "11.2"]
+  script:
+    - python -m pip install . -vv
 
-outputs:
-  - name: nvidia-apex-proc
-    version: {{ proc_version }}
-    build:
-      string: {{ proc_type }}
-    test:
-      commands:
-        - exit 0
-    about:
-      home: https://github.com/conda-forge/nvidia-apex-feedstock
-      license: BSD-3-Clause
-      license_family: BSD
-      summary: A meta-package to select CPU or GPU nvidia-apex build.
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('cuda') }}
+  host:
+    - python
+    - pytorch
+    - pytorch =*=cuda*
+    - setuptools
+    - pip
+  run:
+    - python
+    - cxxfilt
+    - tqdm
+    - numpy
+    - PyYAML
+    - pytest
+  run_constrained:
+    - pytorch =*=cuda*
 
-  - name: nvidia-apex
-    version: {{ version }}
-    build:
-      string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}                                                # [cuda_compiler_version == "None"]
-      string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
-      script:
-        - export TORCH_CUDA_ARCH_LIST="3.5;5.0;6.0;6.1;7.0;7.5;8.0;8.6"
-        - python -m pip install . -vv
-    requirements:
-      build:
-        - {{ compiler('c') }}
-        - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
-      host:
-        - python
-        - pytorch
-        - pytorch =*={{ proc_type }}*
-        - setuptools
-        - pip
-      run:
-        - python
-        - cxxfilt  # [linux]
-        - tqdm
-        - numpy
-        - PyYAML
-        - pytest
-      run_constrained:
-        - nvidia-apex-proc =*=cuda         # [cuda_compiler_version != "None"]
-        - nvidia-apex-proc =*=cpu          # [cuda_compiler_version == "None"]
-        - pytorch =*={{ proc_type }}*
-    test:
-      imports:
-        - apex
-        - apex.amp
-        - apex.parallel
-        - apex.optimizers
-        - apex.normalization.fused_layer_norm
-    about:
-      home: "https://nvidia.github.io/apex/"
-      license: BSD-3-Clause
-      license_family: BSD
-      license_file: LICENSE
-      summary: "a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training."
-      doc_url: "https://nvidia.github.io/apex/"
-      dev_url: "https://github.com/NVIDIA/apex"
+test:
+  imports:
+    - apex
+    - apex.amp
+    - apex.parallel
+    - apex.optimizers
+    - apex.normalization.fused_layer_norm
 
 about:
   home: "https://nvidia.github.io/apex/"
@@ -99,4 +66,3 @@ extra:
     - benhuff
     - jakirkham
     - rluria14
-  feedstock-name: nvidia-apex
