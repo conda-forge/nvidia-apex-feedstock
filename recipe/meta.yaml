@@ -9,7 +9,7 @@ source:
   sha256: 065bc5c0146ee579d5db2b38ca3949da4dc799b871961a2c9eb19e18892166ce
 
 build:
-  number: 1
+  number: 2
   skip: true  # [not linux or cuda_compiler == "None"]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script_env:
