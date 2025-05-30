@@ -30,7 +30,7 @@ requirements:
     - setuptools
     - packaging
     - pytorch
-    - pytorch =*=cuda*
+    - pytorch * cuda*
   run:
     - python
     - cxxfilt
@@ -40,7 +40,7 @@ requirements:
     - pytest
     - packaging
   run_constrained:
-    - pytorch =*=cuda*
+    - pytorch * cuda*
 
 test:
   imports:
