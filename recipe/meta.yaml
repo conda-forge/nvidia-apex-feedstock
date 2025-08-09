@@ -13,7 +13,6 @@ build:
   skip: true  # [win or osx or cuda_compiler_version == "None"]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script_env:
-    - NVCC_APPEND_FLAGS="--threads=2"                                     # [cuda_compiler_version != "None"]
     - TORCH_CUDA_ARCH_LIST=5.0;6.0;7.0;7.5;8.0;8.6;8.9;9.0;10.0;12.0+PTX  # [cuda_compiler_version != "None"]
   script:
     - python -m pip install . -vv --config-settings "--build-option=--cpp_ext" --config-settings "--build-option=--cuda_ext"
