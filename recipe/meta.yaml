@@ -1,4 +1,4 @@
-{% set version = "24.04.01" %}
+{% set version = "25.09" %}
 
 package:
   name: nvidia-apex
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/NVIDIA/apex/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 065bc5c0146ee579d5db2b38ca3949da4dc799b871961a2c9eb19e18892166ce
+  sha256: d30ce19d8519363fd3ee52d028d60c6f66062c53f72d1265ed79e743449b12db
 
 build:
-  number: 6
+  number: 0
   skip: true  # [win]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script_env:
