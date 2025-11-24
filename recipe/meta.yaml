@@ -1,4 +1,4 @@
-{% set version = "24.04.01" %}
+{% set version = "25.04" %}
 
 package:
   name: nvidia-apex
@@ -6,16 +6,16 @@ package:
 
 source:
   url: https://github.com/NVIDIA/apex/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 065bc5c0146ee579d5db2b38ca3949da4dc799b871961a2c9eb19e18892166ce
+  sha256: 29f02e07327ab65fcff587a4097fb9d24fe73b0a0369c81126672fe36e4bd82e
 
 build:
-  number: 6
-  skip: true  # [win]
+  number: 0
+  skip: true  # [win or osx or cuda_compiler_version == "None"]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script_env:
     - TORCH_CUDA_ARCH_LIST=5.0;6.0;7.0;7.5;8.0;8.6;8.9;9.0;10.0;12.0+PTX  # [cuda_compiler_version != "None"]
   script:
-    - python -m pip install . -vv
+    - python -m pip install . -vv --config-settings "--build-option=--cpp_ext" --config-settings "--build-option=--cuda_ext"
 
 requirements:
   build:
@@ -23,6 +23,12 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}
+    - cuda-profiler-api
+    # From the repo: We recommend installing Ninja to make compilation faster.
+    - ninja
+    - libcublas-dev                                  # [build_platform != target_platform]
+    - libcusolver-dev                                # [build_platform != target_platform]
+    - libcusparse-dev                                # [build_platform != target_platform]
   host:
     - python
     - pip
@@ -30,6 +36,9 @@ requirements:
     - packaging
     - pytorch
     - pytorch * cuda*
+    - libcublas-dev
+    - libcusolver-dev
+    - libcusparse-dev
   run:
     - python
     - cxxfilt
