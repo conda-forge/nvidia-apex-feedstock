@@ -2,7 +2,7 @@
 
 package:
   name: nvidia-apex
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://github.com/NVIDIA/apex/archive/refs/tags/{{ version }}.tar.gz
