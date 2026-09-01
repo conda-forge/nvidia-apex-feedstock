@@ -1,0 +1,69 @@
+From 5c44738f83159de749b91d833754e0c77af3babe Mon Sep 17 00:00:00 2001
+From: "Claude Opus 5 (1M context)" <noreply@anthropic.com>
+Date: Tue, 1 Sep 2026 17:25:49 -0500
+Subject: [PATCH] Build fused_weight_gradient_mlp_cuda for TORCH_CUDA_ARCH_LIST
+
+fused_weight_gradient_mlp_cuda hard-codes its own -gencode flags into
+extra_compile_args["nvcc"]. This does not extend TORCH_CUDA_ARCH_LIST, it
+replaces it: torch's _get_cuda_arch_flags() bails out and returns an empty
+list as soon as any user-supplied nvcc flag contains the substring "arch",
+
+    if cflags is not None:
+        for flag in cflags:
+            if 'TORCH_EXTENSION_NAME' in flag:
+                continue
+            if 'arch' in flag:
+                return []
+
+so this one extension silently ignores TORCH_CUDA_ARCH_LIST while every
+other extension in the build honors it.
+
+The hard-coded list starts at sm_70. CUDA 13.0 removed offline compilation
+support for Maxwell, Pascal and Volta, so building against it now fails:
+
+    nvcc fatal : Unsupported gpu architecture 'compute_70'
+
+Dropping the hard-coded flags lets torch derive the arch flags from
+TORCH_CUDA_ARCH_LIST, which fixes the CUDA 13.0 build and also stops the
+extension from being built for a different set of architectures than the
+rest of apex.
+---
+ setup.py | 21 ++++++---------------
+ 1 file changed, 6 insertions(+), 15 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 4aa6616..85458a0 100644
+--- a/setup.py
++++ b/setup.py
+@@ -356,22 +356,13 @@ if "--cuda_ext" in sys.argv:
+ 
+     if bare_metal_version >= Version("11.0"):
+ 
++        # Do not hard-code -gencode flags here. torch's _get_cuda_arch_flags()
++        # returns an empty list as soon as any nvcc flag contains "arch", so a
++        # hard-coded list does not extend TORCH_CUDA_ARCH_LIST, it silently
++        # replaces it for this extension only. That pinned the extension to a
++        # stale architecture list, including sm_70, for which CUDA 13.0 no
++        # longer supports offline compilation.
+         cc_flag = []
+-        cc_flag.append("-gencode")
+-        cc_flag.append("arch=compute_70,code=sm_70")
+-        cc_flag.append("-gencode")
+-        cc_flag.append("arch=compute_80,code=sm_80")
+-        if bare_metal_version >= Version("11.1"):
+-            cc_flag.append("-gencode")
+-            cc_flag.append("arch=compute_86,code=sm_86")
+-        if bare_metal_version >= Version("11.8"):
+-            cc_flag.append("-gencode")
+-            cc_flag.append("arch=compute_90,code=sm_90")
+-        if bare_metal_version >= Version("12.8"):
+-            cc_flag.append("-gencode")
+-            cc_flag.append("arch=compute_100,code=sm_100")
+-            cc_flag.append("-gencode")
+-            cc_flag.append("arch=compute_120,code=sm_120")
+ 
+         ext_modules.append(
+             CUDAExtension(
+-- 
+2.55.0
+
