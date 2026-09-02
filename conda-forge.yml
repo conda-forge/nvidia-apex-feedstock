@@ -7,3 +7,5 @@ github:
 workflow_settings:
   free_disk_space:
     - value: "quick"
+provider:
+  linux_aarch64: default
