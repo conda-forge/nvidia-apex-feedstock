@@ -1,4 +1,4 @@
-{% set version = "25.04" %}
+{% set version = "26.09" %}
 
 package:
   name: nvidia-apex
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://github.com/NVIDIA/apex/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 29f02e07327ab65fcff587a4097fb9d24fe73b0a0369c81126672fe36e4bd82e
+  sha256: fe1a01a672e18784dc3b832bbe38a99ccf23af3b5ead047081e4e7070e4f2f50
   patches:
     - patches/0001-honor-TORCH_CUDA_ARCH_LIST-in-fused_weight_gradient_mlp.patch
 
 build:
-  number: 7
+  number: 0
   skip: true  # [win or osx or cuda_compiler_version == "None"]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script:
